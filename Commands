@@ -1,0 +1,37 @@
+python --version
+
+#set python version globally
+alias python=python3
+
+#check it
+which python
+
+
+#setup venv command
+python -m venv env
+
+
+#create project folder & start it
+
+mkdir tutorial
+cd tutorial
+python -m venv env
+
+ls env/
+source env/bin/activate
+
+
+
+
+
+
+#shutdown
+deactivate
+
+
+
+
+
+
+
+

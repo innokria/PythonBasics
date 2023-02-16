@@ -12,3 +12,20 @@ elif income:
 
 else:
     print('number')
+
+--------------------------
+
+guessCount = 0
+chances = 3
+secret = 9
+
+while guessCount < chances:
+    guessCount += 1
+    if int(input('enter number ? ')) == secret:
+        print("Win")
+        break
+    if guessCount == chances:
+        print("All done")
+        break
+else:
+    print('Keep guessing')

@@ -1,0 +1,14 @@
+high = False
+income = False
+
+
+if high and income:
+    print('matrix')
+
+
+elif income:
+     print("world")
+
+
+else:
+    print('number')

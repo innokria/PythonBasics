@@ -78,3 +78,23 @@ point1 = Point(10,20)
 
 
 print(point1.x)
+
+
+# inhertiance--------------------------
+
+class Mamal:
+    def walk(self):
+        print("waling ")
+
+
+class Dog(Mamal):
+    def bark(self):
+        print("bark")
+
+
+class Cat(Mamal):
+    pass
+
+
+x = Dog()
+x.walk()

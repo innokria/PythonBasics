@@ -29,3 +29,33 @@ while guessCount < chances:
         break
 else:
     print('Keep guessing')
+
+
+---------------------------------------------
+
+
+def greet_user(r):
+    print(f'hi +{r}')
+
+
+print("hello")
+greet_user('rshul')
+
+try:
+    age = int(input('Age: '))
+    print(age)
+
+except ValueError:
+    print('Invalif')
+
+
+class Point:
+    def move(self):
+        print("move")
+
+    def draw(self):
+        print("draw")
+
+
+point1 = Point()
+point1.draw()

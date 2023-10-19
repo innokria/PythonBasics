@@ -1,0 +1,32 @@
+import os
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+def helloworld():
+    print('test')
+
+
+def getfile():
+    myl = []
+    folder = '/home/rsingh/Desktop'
+    for entry in os.listdir(folder):
+        if os.path.isfile(os.path.join(folder, entry)):
+            print(os.stat(os.path.join(folder, entry)))
+            file = os.stat(os.path.join(folder, entry))
+
+            myl.append(entry)
+
+    return myl
+
+
+# run uvicorn example:app in terminal to start
+@app.get("/my-api")
+def world():
+    return getfile()
+
+
+@app.get("/my-first-api")
+def hello():
+    return getfile()

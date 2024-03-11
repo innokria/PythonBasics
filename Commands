@@ -21,7 +21,8 @@ ls env/
 source env/bin/activate
 
 
-
+#debug code
+ import pdb; pdb.set_trace()
 
 
 

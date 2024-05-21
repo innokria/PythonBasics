@@ -30,3 +30,37 @@ def world():
 @app.get("/my-first-api")
 def hello():
     return getfile()
+
+
+
+-------------------------------------------with AI-------------------------------
+from fastapi import FastAPI
+from pydantic import BaseModel
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+app = FastAPI()
+
+# Load GPT-2 model and tokenizer
+model_name = "gpt2"
+model = GPT2LMHeadModel.from_pretrained(model_name)
+tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+
+
+class TextInput(BaseModel):
+    text: str
+
+
+@app.post("/respond")
+def respond_to_input(input: TextInput):
+    # Tokenize the input text and generate response
+    input_ids = tokenizer.encode(input.text, return_tensors="pt")
+    output_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)
+    response = tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+    return {"response": response}
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -1,3 +1,10 @@
+
+Ubuntu  cleanup
+#see file size 
+sudo du -h --max-depth 2 /home/username 
+
+https://www.geeksforgeeks.org/du-command-linux-examples/
+
 python --version
 
 #set python version globally

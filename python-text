@@ -1,54 +1,85 @@
-1. Basic Python Concepts
-Q1: Python is dynamically typed, interpreted, and supports object-oriented and functional programming. It's called interpreted because Python code is executed line-by-line by an interpreter.
-Q2: List: Ordered, mutable. Tuple: Ordered, immutable. Set: Unordered, mutable, unique elements.
-Q3: Python uses a private heap to store objects. The gc module helps with garbage collection using reference counting and cyclic garbage collector.
-2. Data Structures
-Q1: Implement stack using a list (append/pop), and queue using collections.deque.
-Q2: Dictionaries use a hash table for fast key-value lookups (O(1) on average).
-Q3: List comprehensions provide a concise way to create lists using loops and conditions.
-3. Functions and OOP
-Q1: *args collects positional arguments as a tuple, **kwargs collects keyword arguments as a dictionary.
-Q2: Shallow copy copies only references to objects, deep copy duplicates everything recursively.
-Q3: MRO determines the order in which base classes are searched when invoking methods, following the C3 Linearization algorithm.
-4. Error Handling and Debugging
-Q1: try-except blocks handle exceptions, and multiple exceptions can be caught using tuples (except (TypeError, ValueError)).
-Q2: Use debugging tools like pdb, IDE debuggers, or print/logging for tracing errors.
-Q3: finally ensures code execution regardless of whether an exception occurred.
-5. Libraries and Modules
-Q1: A module is a single file of Python code, while a package is a collection of modules organized in directories.
-Q2: virtualenv and venv are used to create isolated Python environments to manage dependencies.
-Q3: requests provides a simpler interface for making HTTP requests, while urllib is more low-level.
-6. File I/O and Serialization
-Q1: Open files with open(), using modes like 'r' (read), 'w' (write), 'a' (append), 'b' (binary).
-Q2: JSON is human-readable, text-based, and language-independent; Pickle serializes Python objects (binary format, not human-readable).
-7. Concurrency and Parallelism
-Q1: The Global Interpreter Lock (GIL) ensures only one thread executes Python bytecode at a time, limiting true parallelism in threads.
-Q2: threading is for I/O-bound tasks, multiprocessing is for CPU-bound tasks (uses separate processes).
-Q3: asyncio allows asynchronous programming with tasks that yield control using async and await.
-8. Algorithms and Problem-Solving
-Q1: Recursive string reversal:
-python
-Copy code
-def reverse_string(s):
-    if len(s) == 0:
-        return s
-    return reverse_string(s[1:]) + s[0]
-Q2: Use a sliding window or dynamic programming approach to find the longest palindrome.
-Q3: Binary search:
-python
-Copy code
-def binary_search(arr, target):
-    low, high = 0, len(arr) - 1
-    while low <= high:
-        mid = (low + high) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            low = mid + 1
-        else:
-            high = mid - 1
-    return -1
-9. Advanced Python Features
+# Python Interview Questions and Answers
+
+## 1. Basic Python Concepts
+- **Q1**: What are Python's key features? Why is Python called an interpreted language?
+  - **A1**: Python is dynamically typed, interpreted, and supports object-oriented and functional programming. It's called interpreted because Python code is executed line-by-line by an interpreter.
+
+- **Q2**: Explain the difference between `list`, `tuple`, and `set` in Python.
+  - **A2**: `List`: Ordered, mutable. `Tuple`: Ordered, immutable. `Set`: Unordered, mutable, unique elements.
+
+- **Q3**: How does Python's memory management work? What is garbage collection?
+  - **A3**: Python uses a private heap to store objects. The `gc` module helps with garbage collection using reference counting and cyclic garbage collector.
+
+## 2. Data Structures
+- **Q1**: How do you implement a stack and queue in Python?
+  - **A1**: Implement stack using a list (`append`/`pop`), and queue using `collections.deque`.
+
+- **Q2**: How does Python handle dictionaries? Explain how dictionaries are optimized for lookups.
+  - **A2**: Dictionaries use a hash table for fast key-value lookups (O(1) on average).
+
+- **Q3**: What are list comprehensions and when would you use them?
+  - **A3**: List comprehensions provide a concise way to create lists using loops and conditions.
+
+## 3. Functions and OOP
+- **Q1**: Explain the difference between *args and **kwargs in Python.
+  - **A1**: `*args` collects positional arguments as a tuple, `**kwargs` collects keyword arguments as a dictionary.
+
+- **Q2**: What is the difference between a shallow copy and a deep copy? How can you create them?
+  - **A2**: Shallow copy copies only references to objects, deep copy duplicates everything recursively.
+
+- **Q3**: How does Python's method resolution order (MRO) work in multiple inheritance?
+  - **A3**: MRO determines the order in which base classes are searched when invoking methods, following the C3 Linearization algorithm.
+
+## 4. Error Handling and Debugging
+- **Q1**: How does Python's `try-except` block work? Can you catch multiple exceptions at once?
+  - **A1**: `try-except` blocks handle exceptions, and multiple exceptions can be caught using tuples (`except (TypeError, ValueError)`).
+
+- **Q2**: How do you debug a Python program?
+  - **A2**: Use debugging tools like `pdb`, IDE debuggers, or print/logging for tracing errors.
+
+- **Q3**: What is the use of the `finally` block in exception handling?
+  - **A3**: `finally` ensures code execution regardless of whether an exception occurred.
+
+## 5. Libraries and Modules
+- **Q1**: What is the difference between a module and a package in Python?
+  - **A1**: A module is a single file of Python code, while a package is a collection of modules organized in directories.
+
+- **Q2**: How would you use `virtualenv` or `venv` to manage dependencies?
+  - **A2**: `virtualenv` and `venv` are used to create isolated Python environments to manage dependencies.
+
+- **Q3**: Explain how you would use `requests` or `urllib` to make HTTP requests.
+  - **A3**: `requests` provides a simpler interface for making HTTP requests, while `urllib` is more low-level.
+
+## 6. File I/O and Serialization
+- **Q1**: How do you read and write files in Python? What are the different modes for file I/O?
+  - **A1**: Open files with `open()`, using modes like `'r'` (read), `'w'` (write), `'a'` (append), `'b'` (binary).
+
+- **Q2**: What is the difference between JSON and Pickle in Python? How would you use them to serialize data?
+  - **A2**: JSON is human-readable, text-based, and language-independent; `Pickle` serializes Python objects (binary format, not human-readable).
+
+## 7. Concurrency and Parallelism
+- **Q1**: What is the `GIL` (Global Interpreter Lock), and how does it affect Python's multithreading?
+  - **A1**: The Global Interpreter Lock (GIL) ensures only one thread executes Python bytecode at a time, limiting true parallelism in threads.
+
+- **Q2**: Explain the difference between `threading` and `multiprocessing` in Python.
+  - **A2**: `threading` is for I/O-bound tasks, `multiprocessing` is for CPU-bound tasks (uses separate processes).
+
+- **Q3**: What is an `asyncio` task, and how does async/await work in Python?
+  - **A3**: `asyncio` allows asynchronous programming with tasks that yield control using `async` and `await`.
+
+## 8. Algorithms and Problem-Solving
+- **Q1**: Write a Python program to reverse a string recursively.
+  ```python
+  def reverse_string(s):
+      if len(s) == 0:
+          return s
+      return reverse_string(s[1:]) + s[0]
+
+
+
+
+
+
 Q1: A decorator is a function that modifies the behavior of another function. Example:
 python
 Copy code

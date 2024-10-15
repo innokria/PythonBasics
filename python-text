@@ -1,0 +1,101 @@
+1. Basic Python Concepts
+Q1: Python is dynamically typed, interpreted, and supports object-oriented and functional programming. It's called interpreted because Python code is executed line-by-line by an interpreter.
+Q2: List: Ordered, mutable. Tuple: Ordered, immutable. Set: Unordered, mutable, unique elements.
+Q3: Python uses a private heap to store objects. The gc module helps with garbage collection using reference counting and cyclic garbage collector.
+2. Data Structures
+Q1: Implement stack using a list (append/pop), and queue using collections.deque.
+Q2: Dictionaries use a hash table for fast key-value lookups (O(1) on average).
+Q3: List comprehensions provide a concise way to create lists using loops and conditions.
+3. Functions and OOP
+Q1: *args collects positional arguments as a tuple, **kwargs collects keyword arguments as a dictionary.
+Q2: Shallow copy copies only references to objects, deep copy duplicates everything recursively.
+Q3: MRO determines the order in which base classes are searched when invoking methods, following the C3 Linearization algorithm.
+4. Error Handling and Debugging
+Q1: try-except blocks handle exceptions, and multiple exceptions can be caught using tuples (except (TypeError, ValueError)).
+Q2: Use debugging tools like pdb, IDE debuggers, or print/logging for tracing errors.
+Q3: finally ensures code execution regardless of whether an exception occurred.
+5. Libraries and Modules
+Q1: A module is a single file of Python code, while a package is a collection of modules organized in directories.
+Q2: virtualenv and venv are used to create isolated Python environments to manage dependencies.
+Q3: requests provides a simpler interface for making HTTP requests, while urllib is more low-level.
+6. File I/O and Serialization
+Q1: Open files with open(), using modes like 'r' (read), 'w' (write), 'a' (append), 'b' (binary).
+Q2: JSON is human-readable, text-based, and language-independent; Pickle serializes Python objects (binary format, not human-readable).
+7. Concurrency and Parallelism
+Q1: The Global Interpreter Lock (GIL) ensures only one thread executes Python bytecode at a time, limiting true parallelism in threads.
+Q2: threading is for I/O-bound tasks, multiprocessing is for CPU-bound tasks (uses separate processes).
+Q3: asyncio allows asynchronous programming with tasks that yield control using async and await.
+8. Algorithms and Problem-Solving
+Q1: Recursive string reversal:
+python
+Copy code
+def reverse_string(s):
+    if len(s) == 0:
+        return s
+    return reverse_string(s[1:]) + s[0]
+Q2: Use a sliding window or dynamic programming approach to find the longest palindrome.
+Q3: Binary search:
+python
+Copy code
+def binary_search(arr, target):
+    low, high = 0, len(arr) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+9. Advanced Python Features
+Q1: A decorator is a function that modifies the behavior of another function. Example:
+python
+Copy code
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
+Q2: Generators use yield to return values lazily, creating an iterator.
+Q3: dataclasses allow you to create classes with minimal boilerplate by automatically generating methods like __init__ and __repr__.
+10. Web Development and APIs
+Q1: Use Flask or FastAPI to create a RESTful API. Example in Flask:
+python
+Copy code
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/api')
+def hello():
+    return {"message": "Hello, World!"}
+Q2: WSGI is the standard interface between web servers and Python web applications/frameworks (e.g., Flask).
+Q3: Use PyJWT or authlib to implement JWT authentication in Python web applications.
+11. Testing and CI/CD
+Q1: Unit testing example with pytest:
+python
+Copy code
+def test_sum():
+    assert sum([1, 2, 3]) == 6
+Q2: Set up a pipeline using GitHub Actions with a .yml file, defining steps for testing, building, and deploying.
+Q3: requirements.txt specifies dependencies, and pyproject.toml manages configurations in modern Python projects.
+12. Popular Libraries and Frameworks
+Q1: Matrix multiplication in NumPy:
+python
+Copy code
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+np.dot(A, B)
+Q2: Pandas can clean and transform data:
+python
+Copy code
+import pandas as pd
+df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+df['C'] = df['A'] + df['B']
+Q3: SQLAlchemy provides an ORM for database interactions:
+python
+Copy code
+from sqlalchemy import create_engine
+engine = create_engine('sqlite:///:memory:')

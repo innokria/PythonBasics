@@ -30,6 +30,9 @@ source env/bin/activate
 
 ***debug code***
  import pdb; pdb.set_trace()
+ #cheat sheet #
+https://github.com/nblock/pdb-cheatsheet/releases
+
  # c to continue 
   # n to next step 
   # q to quit 

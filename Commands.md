@@ -30,6 +30,9 @@ source env/bin/activate
 
 #debug code
  import pdb; pdb.set_trace()
+ # c to continue 
+  # n to next step 
+  # q to quit 
 
 #install requiremtns
 pip install -r requirements.txt

@@ -32,6 +32,8 @@ source env/bin/activate
  import pdb; pdb.set_trace()
  #cheat sheet #
 https://github.com/nblock/pdb-cheatsheet/releases
+https://www.youtube.com/watch?v=BixeKmlKOJc
+
 
  # c to continue 
   # n to next step 

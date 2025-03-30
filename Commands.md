@@ -1,5 +1,5 @@
 
-Ubuntu  cleanup
+***Ubuntu  cleanup***
 #see file size 
 sudo du -h --max-depth 2 /home/username 
 
@@ -18,7 +18,7 @@ which python
 python -m venv env
 
 
-#create project folder & start it
+***create project folder & start it***
 
 mkdir tutorial
 cd tutorial
@@ -28,7 +28,7 @@ ls env/
 source env/bin/activate
 
 
-#debug code
+***debug code***
  import pdb; pdb.set_trace()
  # c to continue 
   # n to next step 

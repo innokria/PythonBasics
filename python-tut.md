@@ -75,11 +75,11 @@
           return s
       return reverse_string(s[1:]) + s[0]
 
+ ## Underscore Concpets ##
+```
 
 
 
-
-  ## Underscore Concpets ##
   . Single Leading Underscore (_method_name)
 Convention for "Private" Methods:
 A single leading underscore signifies that a method is intended for internal use within the class or module where it's defined. It's a convention, not a strict enforcement mechanism, meaning you can still technically call _method_name from outside the class.
@@ -130,3 +130,4 @@ Special/Magic Methods (Dunder Methods):
 Methods with double leading and trailing underscores are reserved for special or "magic" methods in Python, often referred to as "dunder methods" (double underscore methods). These methods define how objects of a class interact with built-in operations and functions (e.g., __init__, __str__, __add__).
 Predefined Behavior:
 You should generally avoid creating your own methods using this naming convention unless you are implementing or overriding a specific dunder method to customize behavior.
+```

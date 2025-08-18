@@ -76,18 +76,18 @@
       return reverse_string(s[1:]) + s[0]
 
  ## Underscore Concpets ##
-```
 
 
 
-  . Single Leading Underscore (_method_name)
+
+ ## Single Leading Underscore (_method_name)
 Convention for "Private" Methods:
 A single leading underscore signifies that a method is intended for internal use within the class or module where it's defined. It's a convention, not a strict enforcement mechanism, meaning you can still technically call _method_name from outside the class.
 Signaling Internal Implementation Details:
 This convention communicates to other developers that the method is part of the class's internal implementation and should not be directly relied upon by external code. 
 Example:
 Python
-
+```
 class MyClass:
     def __init__(self, value):
         self.value = value
@@ -101,14 +101,17 @@ class MyClass:
         """This method is for internal use only."""
         print("Internal helper method called.")
         self.value += 1
-2. Double Leading Underscore (__method_name)
+
+
+```
+## Double Leading Underscore (__method_name)
 Name Mangling:
 A double leading underscore triggers a mechanism called "name mangling." Python automatically renames the method by prepending the class name (e.g., _ClassName__method_name). This helps prevent name clashes in subclasses, especially when multiple inheritance is involved.
 Stronger "Privacy" Indication:
 While still not truly private, name mangling makes it harder to accidentally access or override these methods from subclasses or external code, as their names are changed.
 Example:
 Python
-
+```
 class BaseClass:
     def __init__(self):
         self.__secret_method()
@@ -119,7 +122,7 @@ class BaseClass:
 class DerivedClass(BaseClass):
     def __secret_method(self): # This creates a *new* method, not overriding the base class's
         print("DerivedClass's secret method.")
-
+```
 obj_base = BaseClass()
 # obj_base.__secret_method() # This would raise an AttributeError
 

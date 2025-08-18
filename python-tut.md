@@ -74,3 +74,59 @@
       if len(s) == 0:
           return s
       return reverse_string(s[1:]) + s[0]
+
+
+
+
+
+  ## Underscore Concpets ##
+  . Single Leading Underscore (_method_name)
+Convention for "Private" Methods:
+A single leading underscore signifies that a method is intended for internal use within the class or module where it's defined. It's a convention, not a strict enforcement mechanism, meaning you can still technically call _method_name from outside the class.
+Signaling Internal Implementation Details:
+This convention communicates to other developers that the method is part of the class's internal implementation and should not be directly relied upon by external code. 
+Example:
+Python
+
+class MyClass:
+    def __init__(self, value):
+        self.value = value
+
+    def public_method(self):
+        """This method is intended for external use."""
+        self._internal_helper()
+        print(f"Public method called. Value: {self.value}")
+
+    def _internal_helper(self):
+        """This method is for internal use only."""
+        print("Internal helper method called.")
+        self.value += 1
+2. Double Leading Underscore (__method_name)
+Name Mangling:
+A double leading underscore triggers a mechanism called "name mangling." Python automatically renames the method by prepending the class name (e.g., _ClassName__method_name). This helps prevent name clashes in subclasses, especially when multiple inheritance is involved.
+Stronger "Privacy" Indication:
+While still not truly private, name mangling makes it harder to accidentally access or override these methods from subclasses or external code, as their names are changed.
+Example:
+Python
+
+class BaseClass:
+    def __init__(self):
+        self.__secret_method()
+
+    def __secret_method(self):
+        print("BaseClass's secret method.")
+
+class DerivedClass(BaseClass):
+    def __secret_method(self): # This creates a *new* method, not overriding the base class's
+        print("DerivedClass's secret method.")
+
+obj_base = BaseClass()
+# obj_base.__secret_method() # This would raise an AttributeError
+
+obj_derived = DerivedClass()
+# obj_derived.__secret_method() # This would raise an AttributeError
+3. Double Leading and Trailing Underscores (__method_name__)
+Special/Magic Methods (Dunder Methods):
+Methods with double leading and trailing underscores are reserved for special or "magic" methods in Python, often referred to as "dunder methods" (double underscore methods). These methods define how objects of a class interact with built-in operations and functions (e.g., __init__, __str__, __add__).
+Predefined Behavior:
+You should generally avoid creating your own methods using this naming convention unless you are implementing or overriding a specific dunder method to customize behavior.

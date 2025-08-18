@@ -128,9 +128,17 @@ obj_base = BaseClass()
 
 obj_derived = DerivedClass()
 # obj_derived.__secret_method() # This would raise an AttributeError
-3. Double Leading and Trailing Underscores (__method_name__)
+
+
+### Double Leading and Trailing Underscores (__method_name__) => Operaytor overloading exp + or any thing
 Special/Magic Methods (Dunder Methods):
 Methods with double leading and trailing underscores are reserved for special or "magic" methods in Python, often referred to as "dunder methods" (double underscore methods). These methods define how objects of a class interact with built-in operations and functions (e.g., __init__, __str__, __add__).
 Predefined Behavior:
 You should generally avoid creating your own methods using this naming convention unless you are implementing or overriding a specific dunder method to customize behavior.
-```
+Magic methods in Python, also known as "dunder methods" (due to their double underscores), are special methods that allow you to define how your custom objects interact with built-in Python functions and operators. They enable you to customize the behavior of your classes and make them behave like built-in types.
+Here's a breakdown of their key aspects:
+Syntax:
+Magic methods are identified by their names, which always start and end with double underscores, such as __init__, __str__, __add__, etc.
+Purpose:
+They allow for "operator overloading," meaning you can define how standard operators (like +, -, *, ==) and built-in functions (like len(), str(), print()) behave when applied to instances of your custom classes.
+

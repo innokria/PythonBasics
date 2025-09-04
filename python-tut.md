@@ -143,7 +143,13 @@ Magic methods are identified by their names, which always start and end with dou
 ## Purpose:
 They allow for "operator overloading," meaning you can define how standard operators (like +, -, *, ==) and 
 built-in functions (like len(), str(), print()) behave when applied to instances of your custom classes.
+------------------------------------------------------------------------------------------------------------------------------
 
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
 
 
 

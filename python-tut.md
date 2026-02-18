@@ -161,8 +161,8 @@ print(M._protected)
 print(M.__private__)
 print(M.__private)
 print(M._D__private)
-
-
+```
+## Answer
 This code snippet demonstrates Python's approach to access modifiers and encapsulation. Unlike languages such as Java or C++, Python does not have strict keywords like private or protected. Instead, it uses naming conventions and a mechanism called name mangling to simulate these behaviors.
 
 Here is the detailed breakdown of the concepts and what happens when you run each print statement.
@@ -215,7 +215,7 @@ If you want to create a true "private" variable in Python (one that triggers nam
 
 # Correct convention for private variables
 self.__private_data = "secret"  # Becomes _D__private_data internally
-```
+
 --------------------------------------------------------------------------------------------------------------------------
 
 

@@ -1,4 +1,4 @@
-# Python Interview Questions and Answers
+# Python retro
 
 ## 1. Basic Python Concepts
 - **Q1**: What are Python's key features? Why is Python called an interpreted language?

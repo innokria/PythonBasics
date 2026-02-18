@@ -162,9 +162,60 @@ print(M.__private__)
 print(M.__private)
 print(M._D__private)
 
-```
+
+This code snippet demonstrates Python's approach to access modifiers and encapsulation. Unlike languages such as Java or C++, Python does not have strict keywords like private or protected. Instead, it uses naming conventions and a mechanism called name mangling to simulate these behaviors.
+
+Here is the detailed breakdown of the concepts and what happens when you run each print statement.
+
+1. Public Attributes
+Code: self.public = "public"
+Access: print(M.public)
+
+Concept: In Python, any attribute that does not start with an underscore is considered public. It can be accessed and modified freely from anywhere in the code, both inside and outside the class.
+Result: This works perfectly. Output: public.
+2. Protected Attributes (Convention)
+Code: self._protected = "protected"
+Access: print(M._protected)
+
+Concept: A single underscore prefix is a convention used to tell other programmers: "This is an internal implementation detail. Please do not access or modify this from outside the class unless you know what you are doing."
+Reality: Python does not enforce this restriction. You can technically access it just like a public variable.
+Result: This works fine. Output: protected. (However, a linter or IDE might warn you that you are accessing a protected member).
+3. The "Magic" Attribute (The Trap)
+Code: self.__private__ = "private"
+Access: print(M.__private__)
+
+Concept: This is a common source of confusion. Double underscores at both the beginning and the end of a name are used for Python's built-in "magic" or "dunder" methods (like __init__, __str__).
+Crucial Rule: Name mangling (the "private" mechanism) only happens if the name ends without underscores. Because this variable ends with double underscores, Python treats it as a normal public variable.
+Result: This works. Output: private.
+4. Private Attributes (Name Mangling)
+Code: self.__private = " mre private"
+Access: print(M.__private)
+
+Concept: When an attribute starts with two underscores and does not end with two underscores, Python triggers Name Mangling.
+How it works: Python changes the internal name of the variable to _ClassName__VariableName. In this case, inside the object M, the variable is actually stored as _D__private.
+The Result: When you try to print M.__private, Python looks for an attribute literally named __private. Because the variable was renamed to _D__private, this attribute does not exist.
+Result: This raises an AttributeError. The script will crash here.
+5. Accessing the Mangled Name
+Code: print(M._D__private)
+
+Concept: Because we know Python renamed __private to _D__private, we can access it directly using its mangled name. This demonstrates that Python privacy is not strict security; it is a mechanism to prevent accidental name collisions in inheritance.
+Result: This works. Output: mre private.
+Summary of Execution
+If you run the code block provided, here is exactly what will happen line by line:
+
+print(M.public) $\rightarrow$ Works. Prints public.
+print(M._protected) $\rightarrow$ Works. Prints protected.
+print(M.__private__) $\rightarrow$ Works. Prints private. (Treated as a regular variable).
+print(M.__private) $\rightarrow$ CRASHES. Raises AttributeError: 'D' object has no attribute '__private'.
+Because the script crashes at line 4, the final line (print(M._D__private)) will never execute unless you remove or comment out the line causing the crash.
+
+Corrected Concept
+If you want to create a true "private" variable in Python (one that triggers name mangling), you should avoid the trailing underscores:
+
+
 # Correct convention for private variables
 self.__private_data = "secret"  # Becomes _D__private_data internally
+```
 --------------------------------------------------------------------------------------------------------------------------
 
 

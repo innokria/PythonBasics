@@ -146,9 +146,25 @@ built-in functions (like len(), str(), print()) behave when applied to instances
 ------------------------------------------------------------------------------------------------------------------------------
 
 
+## explain
+```
+explain full concept class D:
+    def __init__(self):
+        self.public = "public"
+        self._protected ="protected"
+        self.__private__="private"
+        self.__private=" mre private"
 
+M = D()
+print(M.public)
+print(M._protected)
+print(M.__private__)
+print(M.__private)
+print(M._D__private)
 
-
+```
+# Correct convention for private variables
+self.__private_data = "secret"  # Becomes _D__private_data internally
 --------------------------------------------------------------------------------------------------------------------------
 
 

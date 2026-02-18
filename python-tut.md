@@ -143,6 +143,39 @@ Magic methods are identified by their names, which always start and end with dou
 ## Purpose:
 They allow for "operator overloading," meaning you can define how standard operators (like +, -, *, ==) and 
 built-in functions (like len(), str(), print()) behave when applied to instances of your custom classes.
+
+```
+class BaseClass:
+    def __init__(self):
+        self.__secret_method()
+
+    def __secret_method(self):
+        print("BaseClass's secret method.")
+
+class DerivedClass(BaseClass):
+    def __secret_method(self): # This creates a *new* method, not overriding the base class's
+        print("DerivedClass's secret method.")
+
+
+
+obj_base = BaseClass()
+obj_derived = DerivedClass()
+
+obj_base._BaseClass__secret_method()
+obj_derived._BaseClass__secret_method()
+obj_derived._DerivedClass__secret_method()
+
+
+
+output
+BaseClass's secret method.
+BaseClass's secret method.
+BaseClass's secret method.
+BaseClass's secret method.
+DerivedClass's secret method.
+```
+
+
 ------------------------------------------------------------------------------------------------------------------------------
 
 
